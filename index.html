@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>For you 💗 Dani & Данячка te amo</title>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Nunito:wght@600;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --pink:#ffd6e7; --pink2:#ffb3d1; --hot:#ff5c9d; --red:#e8173f; --white:#fff; --ink:#6b2a45; --sky:#bfe6ff;
+  --font:'Nunito',system-ui,sans-serif; --script:'Pacifico','Comic Sans MS',cursive;
+}
+*{box-sizing:border-box;margin:0}
+html,body{min-height:100%}
+body{
+  font-family:var(--font);color:var(--ink);text-align:center;overflow-x:hidden;
+  background:
+    radial-gradient(circle at 20% 15%,#fff 0 3px,transparent 4px) 0 0/60px 60px,
+    radial-gradient(circle at 70% 60%,#ffffff99 0 2px,transparent 3px) 0 0/40px 40px,
+    linear-gradient(180deg,var(--pink) 0%,#ffe9f2 55%,var(--sky) 130%);
+  background-attachment:fixed;
+}
+.float{position:fixed;inset:0;pointer-events:none;overflow:hidden;z-index:0}
+.float span{position:absolute;bottom:-40px;font-size:22px;opacity:.7;animation:rise linear infinite}
+@keyframes rise{to{transform:translateY(-115vh) rotate(40deg)}}
+main{position:relative;z-index:1;max-width:560px;margin:0 auto;padding:36px 18px 120px}
+
+.bow{width:150px;height:auto;filter:drop-shadow(0 8px 10px #e8173f40);animation:wiggle 3.2s ease-in-out infinite;transform-origin:50% 60%}
+@keyframes wiggle{0%,100%{transform:rotate(-6deg) scale(1)}50%{transform:rotate(6deg) scale(1.07)}}
+h1{font-family:var(--script);font-weight:400;font-size:clamp(34px,9vw,52px);color:var(--red);margin:8px 0 6px;text-shadow:3px 3px 0 #fff}
+.sub{font-weight:800;font-size:17px;opacity:.85;margin-bottom:26px}
+
+.card{background:#fff;border:4px solid var(--pink2);border-radius:32px;padding:22px 18px;margin:0 0 26px;box-shadow:0 10px 0 var(--pink2),0 20px 30px #ff5c9d33}
+.card h2{font-family:var(--script);font-weight:400;font-size:26px;color:var(--hot);margin-bottom:14px}
+
+button{font-family:var(--font);font-weight:800;font-size:18px;cursor:pointer;border:0;border-radius:999px;padding:14px 26px;color:#fff;background:var(--hot);box-shadow:0 6px 0 #d63b7e;transition:transform .12s,box-shadow .12s}
+button:hover{transform:translateY(-2px) scale(1.04)}
+button:active{transform:translateY(5px);box-shadow:0 1px 0 #d63b7e}
+button:focus-visible{outline:4px solid var(--sky);outline-offset:3px}
+.big{font-size:22px;padding:16px 32px;background:var(--red);box-shadow:0 6px 0 #a80f2c}
+
+.compliment{min-height:132px;margin-top:18px;display:flex;flex-direction:column;justify-content:center;gap:6px}
+.compliment .en{font-family:var(--script);font-size:clamp(22px,6vw,30px);color:var(--red);line-height:1.3}
+.compliment .ru{font-weight:800;font-size:17px;opacity:.8}
+.compliment.pop{animation:pop .55s cubic-bezier(.2,1.6,.4,1)}
+@keyframes pop{0%{transform:scale(.3) rotate(-8deg);opacity:0}100%{transform:none;opacity:1}}
+
+.quiz{position:relative;min-height:230px}
+.q{font-weight:800;font-size:20px;margin-bottom:18px}
+.opts{display:flex;flex-direction:column;align-items:center;gap:16px;position:relative;min-height:150px}
+.opt{transition:transform .35s cubic-bezier(.3,1.4,.5,1),opacity .35s}
+.opt.bad{background:#9bb4d6;box-shadow:0 6px 0 #7f98ba}
+.opt.gone{opacity:0;pointer-events:none}
+.ruS{display:block;font-family:var(--font);font-weight:600;font-size:14px;opacity:.7;margin-top:3px}
+.card h2 .ruS{color:var(--ink)}
+.tag{display:inline-block;font-size:11px;font-weight:800;background:var(--pink);color:var(--hot);border-radius:99px;padding:2px 9px;margin-right:8px;vertical-align:2px}
+.rb{display:block;font-size:12px;font-weight:600;opacity:.85;margin-top:1px}
+.msg{margin-top:12px;font-family:var(--script);font-size:24px;color:var(--red);min-height:34px}
+.msg .ruS{color:var(--ink)}
+.win{animation:pop .6s cubic-bezier(.2,1.6,.4,1)}
+
+.player{position:fixed;left:50%;bottom:16px;transform:translateX(-50%);z-index:5;display:flex;align-items:center;gap:12px;background:#fff;border:3px solid var(--pink2);border-radius:999px;padding:8px 10px 8px 8px;box-shadow:0 8px 20px #ff5c9d40}
+.player button{width:46px;height:46px;padding:0;font-size:20px;display:grid;place-items:center}
+.player .t{font-weight:800;font-size:14px;text-align:left;line-height:1.2}
+.player small{display:block;font-weight:600;opacity:.65}
+.player input{width:90px;accent-color:var(--hot)}
+.spin .disc{animation:spin 3s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+.conf{position:fixed;pointer-events:none;z-index:50;font-size:22px;animation:burst 1.3s cubic-bezier(.1,.7,.4,1) forwards}
+@keyframes burst{to{transform:translate(var(--x),var(--y)) rotate(var(--r));opacity:0}}
+@media (prefers-reduced-motion:reduce){.bow,.float span{animation:none}}
+
+/* ===== photos ===== */
+.hero{position:relative;width:min(68vw,250px);aspect-ratio:1;margin:0 auto 10px}
+.heroimg{width:100%;height:100%;object-fit:cover;border-radius:50%;border:6px solid #fff;box-shadow:0 0 0 5px var(--pink2),0 14px 30px #ff5c9d55;animation:bob 4s ease-in-out infinite}
+@keyframes bob{0%,100%{transform:translateY(0) rotate(-2deg)}50%{transform:translateY(-8px) rotate(2deg)}}
+.hero .bow{position:absolute;width:92px;top:-30px;right:-28px;z-index:2}
+.ghead{font-family:var(--script);font-weight:400;font-size:28px;color:var(--hot);text-shadow:2px 2px 0 #fff;margin:6px 0 20px}
+.gallery{display:grid;grid-template-columns:1fr 1fr;gap:26px 16px;margin:0 0 34px;padding:0 4px}
+.polaroid{position:relative;background:#fff;padding:9px 9px 12px;border-radius:10px;box-shadow:0 10px 24px #ff5c9d40,0 0 0 3px var(--pink2);transform:rotate(var(--rot,0deg));transition:transform .25s cubic-bezier(.3,1.5,.5,1),box-shadow .25s;cursor:pointer}
+.polaroid.wide{grid-column:1/-1;padding:12px 12px 16px}
+.polaroid::before{content:"";position:absolute;top:-11px;left:50%;width:72px;height:22px;background:#ff8aa5aa;transform:translateX(-50%) rotate(-4deg);border-radius:3px;box-shadow:0 2px 4px #0001}
+.polaroid:nth-child(even)::before{background:#bfe6ffcc;transform:translateX(-50%) rotate(5deg)}
+.polaroid:hover,.polaroid:focus-visible{transform:rotate(0) scale(1.05);z-index:2;box-shadow:0 16px 34px #ff5c9d66,0 0 0 3px var(--hot);outline:none}
+.polaroid img{width:100%;display:block;border-radius:5px;object-fit:cover}
+.polaroid figcaption{font-family:var(--script);color:var(--red);font-size:17px;line-height:1.25;margin-top:11px}
+.polaroid.wide figcaption{font-size:21px}
+.polaroid .ruS{color:var(--ink)}
+.polaroid:not(.in){opacity:0}
+.polaroid.in{animation:drop .85s cubic-bezier(.2,1.4,.4,1) backwards;animation-delay:var(--d,0s)}
+@keyframes drop{from{opacity:0;transform:translateY(-70px) rotate(calc(var(--rot,0deg) * 4)) scale(.85)}}
+.lb{position:fixed;inset:0;z-index:40;background:#6b2a45cc;backdrop-filter:blur(6px);display:grid;place-items:center;padding:20px;opacity:0;pointer-events:none;transition:opacity .25s}
+.lb.open{opacity:1;pointer-events:auto}
+.lb figure{background:#fff;padding:12px 12px 16px;border-radius:12px;max-width:94vw;transform:scale(.8) rotate(-3deg);transition:transform .4s cubic-bezier(.2,1.5,.4,1)}
+.lb.open figure{transform:scale(1) rotate(0)}
+.lb img{display:block;max-width:100%;max-height:70vh;border-radius:6px;margin:0 auto}
+.lb figcaption{font-family:var(--script);color:var(--red);font-size:22px;margin-top:12px}
+.lb .ruS{font-family:var(--font);color:var(--ink)}
+@media (prefers-reduced-motion:reduce){.heroimg{animation:none}.polaroid:not(.in){opacity:1}.polaroid.in{animation:none}}
+</style>
+</head>
+<body>
+<div class="float" id="float" aria-hidden="true"></div>
+
+<main>
+  <div class="hero"><img class="heroimg" src="a56ee91636184f9658a96f0a10caa4de.jpg" alt="Cute kitty"><svg class="bow" viewBox="0 0 160 110" aria-hidden="true">
+    <path d="M80 55 C60 8 6 4 8 50 C10 98 62 92 80 55Z" fill="#e8173f"/>
+    <path d="M80 55 C100 8 154 4 152 50 C150 98 98 92 80 55Z" fill="#e8173f"/>
+    <path d="M24 30 C34 18 52 20 60 30" stroke="#ff8aa5" stroke-width="5" fill="none" stroke-linecap="round"/>
+    <path d="M136 30 C126 18 108 20 100 30" stroke="#ff8aa5" stroke-width="5" fill="none" stroke-linecap="round"/>
+    <circle cx="80" cy="55" r="17" fill="#c20f33"/>
+    <circle cx="75" cy="50" r="5" fill="#ff8aa5"/>
+  </svg></div>
+  <h1 id="title">For You</h1>
+  <p class="sub">Something sweet is hidden here ✨<br><span class="ruS">Тут спрятано кое-что очень милое</span></p>
+
+  <section class="card">
+    <h2>Tap the button<span class="ruS">Нажми на кнопку</span></h2>
+    <button class="big" id="cbtn">Compliment, please 💌</button>
+    <div class="compliment" id="comp" aria-live="polite">
+      <div class="en">Tap me, princess!</div>
+      <div class="ru"><span class="tag">in Russian</span>Нажми на меня, принцесса!</div>
+    </div>
+  </section>
+
+  <h2 class="ghead">Little things I love 📸<span class="ruS">Мелочи, которые я люблю</span></h2>
+  <div class="gallery" id="gallery">
+    <figure class="polaroid wide" style="--rot:-2deg" tabindex="0" role="button" aria-label="Open photo">
+      <img src="1db94315-60f2-4b56-9053-d2e8ffecc479.jpg" alt="You and your cuddle buddy" style="aspect-ratio:4/4.7;object-position:62% 45%" loading="lazy">
+      <figcaption>You and your cuddle buddy 🖤<span class="ruS">Ты и твой друг для обнимашек</span></figcaption>
+    </figure>
+    <figure class="polaroid" style="--rot:3deg" tabindex="0" role="button" aria-label="Open photo">
+      <img src="5a16cefc45ed6408d9a3f256716baa32.jpg" alt="Vampire kittens" style="aspect-ratio:1/1" loading="lazy">
+      <figcaption>Us, but spooky 🧛<span class="ruS">Мы, но в стиле вампиров</span></figcaption>
+    </figure>
+    <figure class="polaroid" style="--rot:-3deg" tabindex="0" role="button" aria-label="Open photo">
+      <img src="c51daa1d32c931acedbfa2e1b1af92ca.jpg" alt="Kiss kiss" style="aspect-ratio:1/1" loading="lazy">
+      <figcaption>Kiss kiss! 💋<span class="ruS">Чмок-чмок!</span></figcaption>
+    </figure>
+    <figure class="polaroid" style="--rot:-2deg" tabindex="0" role="button" aria-label="Open photo">
+      <img src="8cce4632-502d-4c12-9334-324ccf0fdd74.jpg" alt="Cuddle patrol" style="aspect-ratio:4/5;object-position:50% 40%" loading="lazy">
+      <figcaption>Cuddle patrol 🫶<span class="ruS">Патруль обнимашек</span></figcaption>
+    </figure>
+    <figure class="polaroid" style="--rot:2.5deg" tabindex="0" role="button" aria-label="Open photo">
+      <img src="3a331f0acd5476abb47623a2b5a17639.jpg" alt="Pixel love" style="aspect-ratio:4/5" loading="lazy">
+      <figcaption>Pixel love :3<span class="ruS">Пиксельная любовь</span></figcaption>
+    </figure>
+  </div>
+
+  <section class="card quiz">
+    <h2>One question</h2>
+    <div class="q">Do you love me?<span class="ruS">Ты меня любишь?</span></div>
+    <div class="opts" id="opts"></div>
+    <div class="msg" id="msg"></div>
+  </section>
+</main>
+
+<div class="lb" id="lb" aria-hidden="true"><figure><img id="lbimg" alt=""><figcaption id="lbcap"></figcaption></figure></div>
+<div class="player" id="player">
+  <button id="pbtn" aria-label="Music">▶</button>
+  <div class="t"><span class="disc" style="display:inline-block">💿</span>Eres<small id="tname">music.mp3</small></div>
+  <input type="range" id="vol" min="0" max="1" step="0.05" value="0.6" aria-label="Volume">
+</div>
+<audio id="audio" src="music.mp3" loop preload="auto"></audio>
+
+<script>
+/* ====== SETTINGS ====== */
+const HER_NAME = "Dani & Данячка";            // e.g. "Emily" — shows in the title
+const TRACK_TITLE = "Café Tacvba"; // player label
+const COMPLIMENTS = [
+  ["You make my whole world brighter.","Ты делаешь весь мой мир ярче."],
+  ["Your smile is my favorite thing.","Твоя улыбка — моя любимая вещь."],
+  ["You are cuter than a kitten in a bow.","Ты милее котёнка с бантиком."],
+  ["Every day with you feels like a fairytale.","С тобой каждый день как сказка."],
+  ["You are beautiful inside and out.","Ты прекрасна и снаружи, и внутри."],
+  ["My heart is yours, always.","Моё сердце всегда твоё."],
+  ["You are my happy place.","Ты — моё место счастья."],
+  ["Nobody laughs like you do, I adore it.","Никто не смеётся как ты, я обожаю это."],
+  ["You are the best thing that happened to me.","Ты — лучшее, что случилось со мной."],
+  ["I'm so lucky I get to love you.","Мне так повезло любить тебя."]
+];
+/* ======================== */
+const $=s=>document.querySelector(s);
+if(HER_NAME) $('#title').textContent = HER_NAME + ", this is for you";
+
+// плавающие сердечки на фоне
+const fl=$('#float'), ems=['💗','🎀','✨','💖','🌸','⭐'];
+for(let i=0;i<16;i++){
+  const s=document.createElement('span');
+  s.textContent=ems[i%ems.length];
+  s.style.left=Math.random()*100+'%';
+  s.style.fontSize=14+Math.random()*22+'px';
+  s.style.animationDuration=9+Math.random()*10+'s';
+  s.style.animationDelay=-Math.random()*14+'s';
+  fl.appendChild(s);
+}
+
+// конфетти
+function confetti(x,y,n=26){
+  const set=['💗','🎀','💖','✨','🌸','⭐','💕','🩷'];
+  for(let i=0;i<n;i++){
+    const e=document.createElement('div'); e.className='conf';
+    e.textContent=set[Math.floor(Math.random()*set.length)];
+    const a=Math.random()*Math.PI*2, d=70+Math.random()*190;
+    e.style.left=x+'px'; e.style.top=y+'px';
+    e.style.setProperty('--x',Math.cos(a)*d+'px');
+    e.style.setProperty('--y',Math.sin(a)*d-60+'px');
+    e.style.setProperty('--r',(Math.random()*720-360)+'deg');
+    e.style.fontSize=16+Math.random()*18+'px';
+    document.body.appendChild(e);
+    setTimeout(()=>e.remove(),1400);
+  }
+}
+document.addEventListener('pointerdown',e=>confetti(e.clientX,e.clientY,10),true);
+
+// комплименты
+let last=-1;
+$('#cbtn').addEventListener('click',e=>{
+  let i; do{i=Math.floor(Math.random()*COMPLIMENTS.length)}while(i===last); last=i;
+  const c=$('#comp');
+  c.innerHTML=`<div class="en">${COMPLIMENTS[i][0]}</div><div class="ru"><span class="tag">in Russian</span>${COMPLIMENTS[i][1]}</div>`;
+  c.classList.remove('pop'); void c.offsetWidth; c.classList.add('pop');
+  const r=e.target.getBoundingClientRect();
+  confetti(r.left+r.width/2,r.top+r.height/2,30);
+});
+
+// квиз: правильный ответ только один
+const opts=$('#opts'), msg=$('#msg');
+const choices=[
+  {t:"I don't love you 💔",r:'Я тебя не люблю',ok:false,m:"Hey, that's not allowed! 🙈"},
+  {t:'I love you 💖',r:'Я тебя люблю',ok:true},
+  {t:"I don't care 😐",r:'Мне всё равно',ok:false,m:'Nope, try again 😤'}
+];
+choices.sort(()=>Math.random()-.5).forEach(c=>{
+  const b=document.createElement('button'); b.className='opt'; b.innerHTML=`${c.t}<span class="rb">${c.r}</span>`;
+  b.dataset.scale=1; b.dataset.dx=0; b.dataset.dy=0;
+  if(!c.ok) b.classList.add('bad');
+  const run=()=>{
+    let s=+b.dataset.scale*0.6;
+    b.dataset.scale=s;
+    b.dataset.dx=(Math.random()*2-1)*140;
+    b.dataset.dy=(Math.random()*2-1)*70;
+    b.style.transform=`translate(${b.dataset.dx}px,${b.dataset.dy}px) scale(${s}) rotate(${Math.random()*40-20}deg)`;
+    if(s<.2) b.classList.add('gone');
+  };
+  b.addEventListener('click',e=>{
+    if(c.ok){
+      msg.innerHTML='I love you too 💞 Forever!<span class="ruS">Я тоже тебя люблю · <i>ya tozhe tebya lyublyu</i></span>';
+      msg.classList.add('win');
+      opts.querySelectorAll('.bad').forEach(x=>x.classList.add('gone'));
+      b.style.transform='scale(1.25)';
+      for(let k=0;k<5;k++) setTimeout(()=>confetti(innerWidth*Math.random(),innerHeight*(.2+Math.random()*.4),40),k*220);
+    }else{
+      msg.textContent=c.m; run();
+    }
+  });
+  if(!c.ok) b.addEventListener('pointerenter',()=>{ if(matchMedia('(hover:hover)').matches) run(); });
+  opts.appendChild(b);
+});
+
+// плеер
+const au=$('#audio'), pb=$('#pbtn'), pl=$('#player');
+$('#tname').textContent=TRACK_TITLE;
+$('.t').firstChild; au.volume=.6;
+pb.addEventListener('click',()=>{ au.paused ? au.play().catch(()=>{}) : au.pause(); });
+au.addEventListener('play',()=>{pb.textContent='⏸';pl.classList.add('spin')});
+au.addEventListener('pause',()=>{pb.textContent='▶';pl.classList.remove('spin')});
+$('#vol').addEventListener('input',e=>au.volume=e.target.value);
+
+// фото: появление и просмотр
+const polas=[...document.querySelectorAll('.polaroid')];
+const io=new IntersectionObserver(es=>es.forEach(en=>{
+  if(en.isIntersecting){ en.target.style.setProperty('--d',(polas.indexOf(en.target)%2)*0.15+'s'); en.target.classList.add('in'); io.unobserve(en.target); }
+}),{threshold:.15});
+polas.forEach(p=>io.observe(p));
+const lb=$('#lb');
+function openPhoto(p){
+  $('#lbimg').src=p.querySelector('img').src;
+  $('#lbcap').innerHTML=p.querySelector('figcaption').innerHTML;
+  lb.classList.add('open'); lb.setAttribute('aria-hidden','false');
+}
+function closePhoto(){ lb.classList.remove('open'); lb.setAttribute('aria-hidden','true'); }
+polas.forEach(p=>{
+  p.addEventListener('click',()=>openPhoto(p));
+  p.addEventListener('keydown',e=>{ if(e.key==='Enter'||e.key===' '){e.preventDefault();openPhoto(p);} });
+});
+lb.addEventListener('click',closePhoto);
+document.addEventListener('keydown',e=>{ if(e.key==='Escape') closePhoto(); });
+</script>
+</body>
+</html>
